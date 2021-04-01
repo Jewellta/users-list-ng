@@ -14,6 +14,10 @@ baseurl:string="http://localhost:59793/api/users";
     private http:HttpClient
 
   ) { }
+  login(username:string, password:string):Observable<User>{
+    return this.http.get(`${this.baseurl}/${username}/${password}`) as Observable<User>
+  }
+
   list(): Observable<User[]>{
     return this.http.get(`${this.baseurl}`) as Observable<User[]>
   }
